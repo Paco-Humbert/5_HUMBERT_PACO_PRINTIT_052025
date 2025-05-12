@@ -16,3 +16,11 @@ const slides = [
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
+
+/** 4 const : bannière, flèche gauche et droite, 4 dot **/
+
+const bannerImg = document.querySelector('.banner-img');
+const arrowLeft = document.querySelector('.arrow_left');
+const arrowRight = document.querySelector('.arrow_right');
+const dots = document.querySelectorAll('.dot'); 			/** all car 4 dot **/
+
