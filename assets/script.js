@@ -1,3 +1,5 @@
+console.log("Script bien chargé !");
+
 const slides = [
 	{
 		"image":"slide1.jpg",
@@ -17,10 +19,31 @@ const slides = [
 	}
 ]
 
-/** 4 const : bannière, flèche gauche et droite, 4 dot **/
+/** 4 const : bannière, flèche gauche et droite, 4 dot, manque arrow ? **/
 
-const bannerImg = document.querySelector('.banner-img');
-const arrowLeft = document.querySelector('.arrow_left');
-const arrowRight = document.querySelector('.arrow_right');
+const img = document.querySelector('.banner-img');
+const left = document.querySelector('.arrow_left');
+const right = document.querySelector('.arrow_right');
 const dots = document.querySelectorAll('.dot'); 			/** all car 4 dot **/
 
+const nbElements = slider.childElementCount; /* compte le nombre d'enfant */
+
+let i = 0;
+
+right.addEventListener('click', () => {
+    if(i < nbElements - 4)
+        i++;
+    else
+        i = 0;
+
+    updateSlider(i);
+});
+
+left.addEventListener('click', () => {
+    if(i > 0)
+        i--;
+    else
+        i = nbElements - 4;
+
+    updateSlider(i);
+});
