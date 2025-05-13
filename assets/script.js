@@ -26,24 +26,23 @@ const left = document.querySelector('.arrow_left');
 const right = document.querySelector('.arrow_right');
 const dots = document.querySelectorAll('.dot'); 			/** all car 4 dot **/
 
-const nbElements = slider.childElementCount; /* compte le nombre d'enfant */
+const nbElements = slides.length; /* compte le nombre d'enfant */ /** length, fonction ou attribut **/
 
 let i = 0;
 
 right.addEventListener('click', () => {
-    if(i < nbElements - 4)
-        i++;
-    else
-        i = 0;
+	i=i++ %slides.length 
 
-    updateSlider(i);
+    updateSlider(i); /** affiche moi **/
 });
 
 left.addEventListener('click', () => {
     if(i > 0)
         i--;
     else
-        i = nbElements - 4;
+        i = nbElements - slides.length;
 
     updateSlider(i);
 });
+
+
