@@ -24,25 +24,41 @@ const slides = [
 const img = document.querySelector('.banner-img');
 const left = document.querySelector('.arrow_left');
 const right = document.querySelector('.arrow_right');
-const dots = document.querySelectorAll('.dot'); 			/** all car 4 dot **/
-
-const nbElements = slides.length; /* compte le nombre d'enfant */ /** length, fonction ou attribut **/
+const dots = document.querySelector('.dots'); 			
+const nbElements = slides.length; /** length, fonction ou attribut **/
 
 let i = 0;
+
+
+
 
 right.addEventListener('click', () => {
 	i=i++ %slides.length 
 
-    updateSlider(i); /** affiche moi **/
+    updateSlides(i); /** affiche moi **/
 });
 
 left.addEventListener('click', () => {
-    if(i > 0)
+    if(i > 0){
         i--;
-    else
-        i = nbElements - slides.length;
-
-    updateSlider(i);
+	}
+    else {
+        i = - slides.length;
+	}
+    updateSlides(i);
 });
 
+function updateSlides(i) {
+
+	const caroussel = slides[i];
+		const img = document.querySelector(".banner-img");
+		// Met à jour l'image
+		img.setAttribute("src" , "../assets/images/slideshow/"+ caroussel.image);
+
+		const p = document.querySelector(".banner-txt");
+		p.innerHTML= caroussel.tagLine;
+
+		// check
+		console.log("Slide affichée :", slides[i].jpg);
+}
 
