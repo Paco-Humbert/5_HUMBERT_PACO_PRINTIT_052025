@@ -33,24 +33,21 @@ let i = 0;
 // function
 updateSlides(i)
 dots ()
+addDot ()
 
 
 
 
 right.addEventListener('click', () => {
-	i=i++ %slides.length 
+	i=(i+1) %slides.length; 
 
     updateSlides(i); /** affiche moi **/
 });
 
 left.addEventListener('click', () => {
-    if(i > 0){
-        i--;
-	}
-    else {
-        i = - slides.length;
-	}
-    updateSlides(i);
+    i = (i - 1 + slides.length) % slides.length;
+
+	updateSlides(i);
 });
 
 function updateSlides(i) {
@@ -75,3 +72,6 @@ function dots () {
 
 }
 
+function addDot () {
+
+}
