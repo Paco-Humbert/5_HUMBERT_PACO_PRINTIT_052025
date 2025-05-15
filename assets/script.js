@@ -19,29 +19,19 @@ const slides = [
 	}
 ]
 
-/** 4 const : bannière, flèche gauche et droite, 4 dot, manque arrow ? **/
-
-//variable
 const left = document.querySelector('.arrow_left');
 const right = document.querySelector('.arrow_right');			
-const nbElements = slides.length; /** length, fonction ou attribut **/
+const nbElements = slides.length; // length 
 let i = 0;
 
-
-
-
-// function
 updateSlides(i)
 dots ()
 addDot ()
 
-
-
-
 right.addEventListener('click', () => {
-	i=(i+1) %slides.length; 
+	i=(i+1) %slides.length; // Me garantie grâce au modulo que le chiffre final qui va sortir se situe obligatoirement dans [0...i-1]
 
-    updateSlides(i); /** affiche moi **/
+    updateSlides(i); // Affiche moi 
 });
 
 left.addEventListener('click', () => {
@@ -55,21 +45,22 @@ function updateSlides(i) {
 	const caroussel = slides[i];
 		const img = document.querySelector(".banner-img");
 		// Met à jour l'image
-		img.setAttribute("src" , "../assets/images/slideshow/"+ caroussel.image);
+		img.setAttribute("src" , "../assets/images/slideshow/"+ caroussel.image); // setAttribute : modifie l'attribut du HTML, ici la source
 		// Met à jour le texte
 		const p = document.querySelector(".banner-txt");
-		p.innerHTML= caroussel.tagLine;
-
+		// Texte associé à la slide
+		p.innerHTML= caroussel.tagLine; //innerHTML : modifie le contenu HTML
 		// check
 		console.log("Slide affichée :", slides[i].jpg);
 }
 
 function dots () {
 	const dots = document.querySelector(".dots");
+	for (let i = 0; i < slides.length; i++){  // sert à créer autant de dot qu'il y'a de slides
 		const dot = document.createElement("div");
 		dot.setAttribute("class", "dot");
-		dots.appendChild(dot)
-
+		dots.appendChild(dot) 
+	}
 }
 
 function addDot () {
