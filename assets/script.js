@@ -65,4 +65,7 @@ function dots () {
 
 function addDot () {
 	const listDot = document.querySelectorAll(".dot");	
+	for (let i = 0; i < listDot.length; i++) {
+       
+}
 }
