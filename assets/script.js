@@ -23,13 +23,16 @@ const slides = [
 
 //variable
 const left = document.querySelector('.arrow_left');
-const right = document.querySelector('.arrow_right');
-const dots = document.querySelector('.dots'); 			
+const right = document.querySelector('.arrow_right');			
 const nbElements = slides.length; /** length, fonction ou attribut **/
 let i = 0;
 
+
+
+
 // function
 updateSlides(i)
+dots ()
 
 
 
@@ -64,4 +67,11 @@ function updateSlides(i) {
 		console.log("Slide affichée :", slides[i].jpg);
 }
 
+function dots () {
+	const dots = document.querySelector(".dots");
+		const dot = document.createElement("div");
+		dot.setAttribute("class", "dot");
+		dots.appendChild(dot)
+
+}
 
