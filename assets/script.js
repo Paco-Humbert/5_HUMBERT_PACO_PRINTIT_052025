@@ -21,13 +21,15 @@ const slides = [
 
 /** 4 const : bannière, flèche gauche et droite, 4 dot, manque arrow ? **/
 
-const img = document.querySelector('.banner-img');
+//variable
 const left = document.querySelector('.arrow_left');
 const right = document.querySelector('.arrow_right');
 const dots = document.querySelector('.dots'); 			
 const nbElements = slides.length; /** length, fonction ou attribut **/
-
 let i = 0;
+
+// function
+updateSlides(i)
 
 
 
@@ -54,11 +56,12 @@ function updateSlides(i) {
 		const img = document.querySelector(".banner-img");
 		// Met à jour l'image
 		img.setAttribute("src" , "../assets/images/slideshow/"+ caroussel.image);
-
+		// Met à jour le texte
 		const p = document.querySelector(".banner-txt");
 		p.innerHTML= caroussel.tagLine;
 
 		// check
 		console.log("Slide affichée :", slides[i].jpg);
 }
+
 
