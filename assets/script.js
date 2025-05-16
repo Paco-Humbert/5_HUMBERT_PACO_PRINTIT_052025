@@ -25,8 +25,9 @@ const nbElements = slides.length; // length
 let i = 0;
 
 updateSlides(i)
-dots ()
 addDot ()
+dots ()
+
 
 
 right.addEventListener('click', () => {
@@ -66,9 +67,9 @@ function dots () {
 
 function addDot () {
 	const listDot = document.querySelectorAll(".dot");	
-		for (let i = 0; i < listDot.length; i++) {
-			const dot = listDot[i];
-				if (i == i){
+		for (let j = 0; j < listDot.length; j++) {
+			const dot = listDot[j];
+				if (j === i){
 					dot.classList.add('dot_selected');		
 			}
 				else{
