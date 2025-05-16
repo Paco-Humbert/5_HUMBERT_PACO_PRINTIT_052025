@@ -31,15 +31,17 @@ dots ()
 
 
 right.addEventListener('click', () => {
-	i=(i+1) %slides.length; // Me garantie grâce au modulo que le chiffre final qui va sortir se situe obligatoirement dans [0...i-1]
+	i=(i+1) %slides.length; 
 
-    updateSlides(i); // Affiche moi 
+    updateSlides(i);  
+	addDot ();
 });
 
 left.addEventListener('click', () => {
     i = (i - 1 + slides.length) % slides.length;
 
 	updateSlides(i);
+	addDot ();
 });
 
 function updateSlides(i) {
@@ -67,7 +69,7 @@ function dots () {
 
 function addDot () {
 	const listDot = document.querySelectorAll(".dot");	
-		for (let j = 0; j < listDot.length; j++) {
+		for (let j = 0; j < listDot.length; j++) { // Création d'un index pour DOT
 			const dot = listDot[j];
 				if (j === i){
 					dot.classList.add('dot_selected');		
