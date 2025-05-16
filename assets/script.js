@@ -28,6 +28,7 @@ updateSlides(i)
 dots ()
 addDot ()
 
+
 right.addEventListener('click', () => {
 	i=(i+1) %slides.length; // Me garantie grâce au modulo que le chiffre final qui va sortir se situe obligatoirement dans [0...i-1]
 
@@ -58,14 +59,22 @@ function dots () {
 	const dots = document.querySelector(".dots");
 	for (let i = 0; i < slides.length; i++){  // sert à créer autant de dot qu'il y'a de slides
 		const dot = document.createElement("div");
+		dots.appendChild(dot)
 		dot.setAttribute("class", "dot");
-		dots.appendChild(dot) 
-	}
+ 	}
 }
 
 function addDot () {
 	const listDot = document.querySelectorAll(".dot");	
-	for (let i = 0; i < listDot.length; i++) {
-       
+		for (let i = 0; i < listDot.length; i++) {
+			const dot = listDot[i];
+				if (i == i){
+					dot.classList.add('dot_selected');		
+			}
+				else{
+					dot.classList.remove('dot_selected');	 
+			}
+    
+		}  
 }
-}
+
