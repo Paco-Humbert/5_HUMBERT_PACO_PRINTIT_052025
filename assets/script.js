@@ -24,38 +24,30 @@ const right = document.querySelector('.arrow_right');
 const nbElements = slides.length; // length 
 let i = 0;
 
-updateSlides(i)
-addDot ()
 dots ()
-
-
+const listDot = document.querySelectorAll(".dot");
+const img = document.querySelector(".banner-img");
+const p = document.querySelector(".banner-txt");
+updateSlides(i)
 
 right.addEventListener('click', () => {
 	i=(i+1) %slides.length; 
-
     updateSlides(i);  
-	addDot ();
 });
 
 left.addEventListener('click', () => {
     i = (i - 1 + slides.length) % slides.length;
-
 	updateSlides(i);
-	addDot ();
 });
 
-function updateSlides(i) {
 
+function updateSlides(i) {
 	const caroussel = slides[i];
-		const img = document.querySelector(".banner-img");
 		// Met à jour l'image
-		img.setAttribute("src" , "../assets/images/slideshow/"+ caroussel.image); // setAttribute : modifie l'attribut du HTML, ici la source
-		// Met à jour le texte
-		const p = document.querySelector(".banner-txt");
+		img.setAttribute("src" , "./assets/images/slideshow/"+ caroussel.image); // setAttribute : modifie l'attribut du HTML, ici la source
 		// Texte associé à la slide
 		p.innerHTML= caroussel.tagLine; //innerHTML : modifie le contenu HTML
-		// check
-		console.log("Slide affichée :", slides[i].jpg);
+	updateDot (i);
 }
 
 function dots () {
@@ -64,20 +56,21 @@ function dots () {
 		const dot = document.createElement("div");
 		dots.appendChild(dot)
 		dot.setAttribute("class", "dot");
+		dot.addEventListener('click', () => {
+			updateSlides(i)
+		})
  	}
 }
 
-function addDot () {
-	const listDot = document.querySelectorAll(".dot");	
+function updateDot (i) {
 		for (let j = 0; j < listDot.length; j++) { // Création d'un index pour DOT
 			const dot = listDot[j];
-				if (j === i){
+				if (j == i){
 					dot.classList.add('dot_selected');		
 			}
 				else{
 					dot.classList.remove('dot_selected');	 
 			}
-    
 		}  
 }
 
